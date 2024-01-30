@@ -7,7 +7,7 @@ import java.io.PrintWriter;
 import java.net.InetAddress;
 import java.net.Socket;
 
-public class Client extends Server {
+public class Client {
 
     public static void main(String[] args) {
         try (
@@ -23,7 +23,6 @@ public class Client extends Server {
 
             InetAddress inetAddress = InetAddress.getByName("localhost");
             System.out.println("localhost" + ", ip.address: 127.0.0.1" + inetAddress.getHostAddress());
-
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
