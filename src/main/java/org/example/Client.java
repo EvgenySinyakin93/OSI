@@ -8,21 +8,14 @@ import java.net.InetAddress;
 import java.net.Socket;
 
 public class Client {
-
     public static void main(String[] args) {
         try (
-                Socket socket = new Socket("localhost", Server.port);
-                PrintWriter out = new PrintWriter(socket.getOutputStream(), true);
-                BufferedReader in = new BufferedReader(new InputStreamReader(socket.getInputStream()));
+                Socket clientSocket = new Socket("127.0.0.1", Server.port);
+                PrintWriter out = new PrintWriter(clientSocket.getOutputStream(),true);
+                BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()))
         ) {
-            System.out.println("New connection accepted");
-
-            final String name = in.readLine();
-
-            out.println(String.format("Hi %s, your port is %d", name, socket.getPort()));
-
-            InetAddress inetAddress = InetAddress.getByName("localhost");
-            System.out.println("localhost" + ", ip.address: 127.0.0.1" + inetAddress.getHostAddress());
+            out.println("Evgeny");
+            System.out.println(in.readLine());
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
