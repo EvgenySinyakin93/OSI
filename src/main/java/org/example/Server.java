@@ -18,7 +18,7 @@ public class Server {
                      BufferedReader in = new BufferedReader(new InputStreamReader(clientSocket.getInputStream()));
                 ) {
                     String infoForClient = in.readLine();
-                    System.out.println("Новое подключение принято. Инфо: %s, порт: %d%n" + infoForClient + clientSocket.getPort());
+                    System.out.println(String.format("Новое подключение принято. Инфо: %s, порт: %d%n" + infoForClient + clientSocket.getPort()));
                     out.println(clientSocket.getPort());
                 }
             }
